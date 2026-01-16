@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { defaultLocale, siteContent, type Locale } from "@/content/siteContent";
+import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
 
 type LayoutParams = { locale: Locale };
 
@@ -15,7 +15,7 @@ export async function generateMetadata({
   params: Promise<LayoutParams>;
 }): Promise<Metadata> {
   const locale = (await params).locale ?? defaultLocale;
-  const { title, description } = siteContent[locale].metadata;
+  const { title, description } = getSiteContent(locale).metadata;
 
   return {
     title,

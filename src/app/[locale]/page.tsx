@@ -2,7 +2,7 @@ import Link from "next/link";
 import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
-import { defaultLocale, siteContent, type Locale } from "@/content/siteContent";
+import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
 
 type PageParams = { locale: Locale };
 
@@ -12,7 +12,7 @@ type PageProps = {
 
 export default async function LocaleHome({ params }: PageProps) {
   const locale = (await params).locale ?? defaultLocale;
-  const content = siteContent[locale];
+  const content = getSiteContent(locale);
 
   return (
     <div className="space-y-6 md:space-y-10">
