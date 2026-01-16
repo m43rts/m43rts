@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
+import { AutoSnapMain } from "@/components/AutoSnapMain";
 import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
 
 type LayoutParams = { locale: Locale };
@@ -33,8 +34,8 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
   const locale = (await params).locale ?? defaultLocale;
 
   return (
-    <div className="mx-auto flex min-h-screen max-w-5xl flex-col bg-white text-black">
-      <header className="flex items-center justify-between px-6 py-6 md:px-10 md:py-8">
+    <div className="mx-auto flex h-[100svh] max-w-5xl flex-col bg-white text-black">
+      <header className="flex shrink-0 items-center justify-between px-6 py-6 md:px-10 md:py-8">
         <span className="font-heading sm:text-8xl text-6xl font-semibold tracking-tight -ml-[0.06em] sm:-ml-[0.07em]">
           m43rts
         </span>
@@ -42,7 +43,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <LanguageSwitcher currentLocale={locale} />
         </div>
       </header>
-      <main className="flex-1">{children}</main>
+      <AutoSnapMain className="relative flex flex-1 min-h-0 flex-col overflow-y-auto">
+        {children}
+      </AutoSnapMain>
       <footer className="px-6 pb-10 pt-6 text-xs text-black/50 md:px-10">
         © {new Date().getFullYear()} m43rts — Maxime Aerts.
       </footer>
