@@ -94,43 +94,43 @@ const localizedContent: LocalizedSectionContent = {
   },
   hero: {
     title: {
-      fr: "Imaginer, planifier et livrer des projets IT complexes.",
-      en: "Imagine, plan, and deliver complex IT projects.",
+      fr: "Je vous aide à imaginer, planifier et délivrer des solutions IT complexes.",
+      en: "I help you imagine, plan, and deliver complex IT solutions.",
     },
     subtitle: {
-      fr: "Gestion de projet, ingénierie logicielle, et accompagnement complet du cadrage à la mise en production.",
-      en: "Project management, software engineering, and end-to-end guidance from scoping to production.",
+      fr: "Gestion de projet, ingénierie logicielle, déploiement d'infrastucutre. Pour toute problématique IT, je peux vous fournir un accompagnement complet; de la définition à la mise en production d'une solution adaptée.",
+      en: "Project management, software engineering, infrastructure deployment. For any IT problem, I can provide a complete guidance; from scoping to production of a tailored solution.",
     },
     primaryCta: {
       fr: "Voir les projets",
       en: "See projects",
     },
     secondaryCta: {
-      fr: "Contact",
-      en: "Contact",
+      fr: "Devis gratuit",
+      en: "Free quote",
     },
   },
   cv: {
     title: {
-      fr: "Compétences clés",
-      en: "Core capabilities",
+      fr: "Mes compétences",
+      en: "My skills",
     },
     summary: {
-      fr: "J’aide à cadrer, prioriser et piloter des projets IT tout en gardant un œil sur l’ingénierie et la qualité.",
-      en: "I help shape, prioritize, and run IT projects while keeping engineering quality in view.",
+      fr: "Mon profil LinkedIn est accessible si vous souhaitez un CV détaillé. Les points importants à retenir :",
+      en: "My LinkedIn profile is accessible if you want a detailed CV. The important points to remember :",
     },
     highlights: {
       fr: [
-        "Pilotage de projets complexes avec parties prenantes multiples.",
-        "Architecture fonctionnelle & technique pragmatique (web, données).",
-        "Delivery fiable : roadmap, risques, qualité, run.",
-        "Collaboration claire : ateliers, documents concis, décisions tracées.",
+        "Plus de 10 années d'expérience en ingénierie logicielle.",
+        "Autant passionné par la technique que par l'humain et les relations interpersonnelles.",
+        "Des solutions sur mesure qui répondent aux besoins réels du terrain.",
+        "Une bonne gestion de projet pour un suivi transparent et efficace.",
       ],
       en: [
-        "Steering complex projects with multiple stakeholders.",
-        "Pragmatic functional & technical architecture (web, data).",
-        "Reliable delivery: roadmap, risks, quality, operations.",
-        "Clear collaboration: workshops, concise docs, traced decisions.",
+        "More than 10 years of experience in software engineering.",
+        "Passionate about both technology and human relationships.",
+        "Tailored solutions that meet the real needs of the field.",
+        "A good project management for a transparent and efficient follow-up.",
       ],
     },
   },
@@ -142,37 +142,58 @@ const localizedContent: LocalizedSectionContent = {
     items: {
       fr: [
         {
-          title: "Platforme data & reporting",
-          description: "Cadrage et livraison d’une plateforme de reporting temps réel pour les opérations internes.",
-          tags: ["pilotage", "data", "industrialisation"],
+          title: "Rabadon",
+          description: "",
+          tags: ["Startup", "DevOps"],
         },
         {
-          title: "Refonte d’app métier",
-          description: "Revue d’architecture, ateliers produit et mise en place d’un backlog exécutable.",
-          tags: ["architecture", "produit", "delivery"],
+          title: "TwinSkin",
+          description: "",
+          tags: ["Startup", "Gestion de projet", "Gestion produit", "DevOps"],
         },
         {
-          title: "Automatisation interne",
-          description: "Automatisation de processus manuels avec intégration légère (API/NoCode).",
-          tags: ["automation", "nocode", "ops"],
+          title: "Doctorat",
+          description: "",
+          tags: ["Recherche", "Sécurité", "DevOps", "Conférences"],
+        },
+        {
+          title: "NRB SecOps",
+          description: "",
+          tags: ["Service", "Sécurité", "DevOps", "PenTest"],
+        },
+        {
+          title: "UGo",
+          description: "",
+          tags: ["Startup", "Developpement"],
         },
       ],
       en: [
         {
-          title: "Data & reporting platform",
-          description: "Scoped and delivered a real-time reporting platform for internal operations.",
-          tags: ["delivery", "data", "industrialization"],
+          title: "Rabadon",
+          description: "",
+          tags: ["Startup", "DevOps"],
         },
         {
-          title: "Business app redesign",
-          description: "Architecture review, product workshops, and creation of an executable backlog.",
-          tags: ["architecture", "product", "delivery"],
+          title: "TwinSkin",
+          description: "",
+          tags: ["Startup", "Project management", "Product management", "DevOps"],
         },
         {
-          title: "Internal automation",
-          description: "Automated manual processes with light integrations (API/NoCode).",
-          tags: ["automation", "nocode", "ops"],
+          title: "Doctorat",
+          description: "",
+          tags: ["Research", "Security", "DevOps", "Conferences"],
         },
+        {
+          title: "NRB SecOps",
+          description: "",
+          tags: ["Service", "Security", "DevOps", "PenTest"],
+        },
+        {
+          title: "UGo",
+          description: "",
+          tags: ["Startup", "Development"],
+        },
+
       ],
     },
   },
@@ -186,8 +207,8 @@ const localizedContent: LocalizedSectionContent = {
       en: "Send an email",
     },
     copyLabel: {
-      fr: "Copier l’adresse",
-      en: "Copy address",
+      fr: "Copier l'email",
+      en: "Copy email",
     },
     copiedLabel: {
       fr: "Copié",
