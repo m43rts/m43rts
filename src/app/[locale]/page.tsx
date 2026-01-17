@@ -43,7 +43,9 @@ export default async function LocaleHome({ params }: PageProps) {
         </div>
       </Section>
 
-      <Section id="projects" title={content.projects.title} nextId="contact">
+      <Section id="projects" title={content.projects.title} nextId="contact"
+        backgroundImage={{ src: "/random_diagram.png", opacityClassName: "opacity-20" }}
+      >
         <div className="grid gap-4 md:grid-cols-2">
           {content.projects.items.map((project) => (
             <ProjectCard
@@ -57,19 +59,24 @@ export default async function LocaleHome({ params }: PageProps) {
       </Section>
 
       <Section id="contact" title={content.contact.title}>
-        <div className="flex flex-wrap items-center gap-3">
-          <Link
-            href={`mailto:${content.contact.email}`}
-            className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85"
-          >
-            {content.contact.emailLabel}
-          </Link>
-          <CopyEmailButton
-            email={content.contact.email}
-            label={content.contact.copyLabel}
-            copiedLabel={content.contact.copiedLabel}
-          />
-          <span className="text-sm text-black/60">{content.contact.email}</span>
+        <div className="flex h-full flex-col gap-4">
+          <div className="flex flex-wrap items-center gap-3">
+            <Link
+              href={`mailto:${content.contact.email}`}
+              className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85"
+            >
+              {content.contact.emailLabel}
+            </Link>
+            <CopyEmailButton
+              email={content.contact.email}
+              label={content.contact.copyLabel}
+              copiedLabel={content.contact.copiedLabel}
+            />
+            <span className="text-sm text-black/60">{content.contact.email}</span>
+          </div>
+          <footer className="mt-auto pt-8 text-xs text-black/50">
+            © {new Date().getFullYear()} m43rts — Maxime Aerts.
+          </footer>
         </div>
       </Section>
     </div>

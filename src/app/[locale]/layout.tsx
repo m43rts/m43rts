@@ -51,9 +51,6 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
       <main className="relative flex flex-1 min-h-0 flex-col overflow-y-auto">
         {children}
       </main>
-      <footer className="px-6 pb-10 pt-6 text-xs text-black/50 md:px-10">
-        © {new Date().getFullYear()} m43rts — Maxime Aerts.
-      </footer>
     </div>
   );
 }
