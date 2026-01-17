@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { AutoSnapMain } from "@/components/AutoSnapMain";
 import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
 
 type LayoutParams = { locale: Locale };
@@ -49,9 +48,9 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           <LanguageSwitcher currentLocale={locale} />
         </div>
       </header>
-      <AutoSnapMain className="relative flex flex-1 min-h-0 flex-col overflow-y-auto">
+      <main className="relative flex flex-1 min-h-0 flex-col overflow-y-auto">
         {children}
-      </AutoSnapMain>
+      </main>
       <footer className="px-6 pb-10 pt-6 text-xs text-black/50 md:px-10">
         © {new Date().getFullYear()} m43rts — Maxime Aerts.
       </footer>
