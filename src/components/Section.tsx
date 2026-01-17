@@ -1,4 +1,6 @@
+import type { ComponentProps } from "react";
 import { ScrollDownButton } from "@/components/ScrollDownButton";
+import { SectionBackgroundImage } from "@/components/SectionBackgroundImage";
 
 type SectionProps = {
   id: string;
@@ -7,15 +9,25 @@ type SectionProps = {
   eyebrow?: string;
   className?: string;
   nextId?: string;
+  backgroundImage?: ComponentProps<typeof SectionBackgroundImage>;
 };
 
-export function Section({ id, title, eyebrow, children, className, nextId }: SectionProps) {
+export function Section({
+  id,
+  title,
+  eyebrow,
+  children,
+  className,
+  nextId,
+  backgroundImage,
+}: SectionProps) {
   return (
     <section
       id={id}
-      className={`min-h-full w-full flex-shrink-0 border-t border-black/5 bg-white px-6 py-12 md:px-10 md:py-16 ${className ?? ""}`}
+      className={`relative min-h-full w-full flex-shrink-0 overflow-hidden border-t border-black/5 bg-white px-6 py-12 md:px-10 md:py-16 ${className ?? ""}`}
     >
-      <div className="flex h-full flex-col gap-4">
+      {backgroundImage ? <SectionBackgroundImage {...backgroundImage} /> : null}
+      <div className="relative z-10 flex h-full flex-col gap-4">
         {eyebrow ? (
           <p className="text-xs uppercase tracking-[0.2em] text-black/60">
             {eyebrow}

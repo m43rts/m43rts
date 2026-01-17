@@ -32,13 +32,19 @@ export async function generateMetadata({
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
   const locale = (await params).locale ?? defaultLocale;
+  const content = getSiteContent(locale);
 
   return (
     <div className="mx-auto flex h-[100svh] max-w-5xl flex-col bg-white text-black">
-      <header className="flex shrink-0 items-center justify-between px-6 py-6 md:px-10 md:py-8">
-        <span className="font-heading sm:text-8xl text-6xl font-semibold tracking-tight -ml-[0.06em] sm:-ml-[0.07em]">
-          m43rts
-        </span>
+      <header className="flex shrink-0 items-center justify-between px-6 py-4 md:px-10 md:py-6">
+        <div className="flex flex-col gap-1">
+          <span className="font-heading text-6xl font-semibold leading-none tracking-tight sm:text-8xl -ml-[0.06em] sm:-ml-[0.07em]">
+            m43rts
+          </span>
+          <span className="text-xs uppercase leading-none tracking-[0.2em] text-black/60">
+            {content.header.subtitle}
+          </span>
+        </div>
         <div className="self-start">
           <LanguageSwitcher currentLocale={locale} />
         </div>

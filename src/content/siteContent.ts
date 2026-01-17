@@ -15,8 +15,10 @@ export type SectionContent = {
     title: string;
     description: string;
   };
+  header: {
+    subtitle: string;
+  };
   hero: {
-    eyebrow: string;
     title: string;
     subtitle: string;
     primaryCta: string;
@@ -45,8 +47,10 @@ type LocalizedSectionContent = {
     title: Localized<string>;
     description: Localized<string>;
   };
+  header: {
+    subtitle: Localized<string>;
+  };
   hero: {
-    eyebrow: Localized<string>;
     title: Localized<string>;
     subtitle: Localized<string>;
     primaryCta: Localized<string>;
@@ -75,19 +79,20 @@ export const defaultLocale: Locale = "fr";
 const localizedContent: LocalizedSectionContent = {
   metadata: {
     title: {
-      fr: "m43rts | Maxime Aerts - Pilotage & ingénierie IT",
-      en: "m43rts | Maxime Aerts - IT project strategy & engineering",
+      en: "Maxime Aerts",
     },
     description: {
-      fr: "Imaginez, planifiez et livrez des projets IT complexes.",
-      en: "Imagine, plan, and deliver complex IT projects with Maxime Aerts (m43rts).",
+      fr: "Je vous aide à imaginer, planifier et délivrer des solutions IT complexes.",
+      en: "I help you imagine, plan, and deliver complex IT solutions.",
     },
   },
-  hero: {
-    eyebrow: {
+  header: {
+    subtitle: {
       fr: "Maxime Aerts",
       en: "Maxime Aerts",
     },
+  },
+  hero: {
     title: {
       fr: "Imaginer, planifier et livrer des projets IT complexes.",
       en: "Imagine, plan, and deliver complex IT projects.",
@@ -203,8 +208,10 @@ export function getSiteContent(locale: Locale): SectionContent {
       title: resolve(localizedContent.metadata.title, locale),
       description: resolve(localizedContent.metadata.description, locale),
     },
+    header: {
+      subtitle: resolve(localizedContent.header.subtitle, locale),
+    },
     hero: {
-      eyebrow: resolve(localizedContent.hero.eyebrow, locale),
       title: resolve(localizedContent.hero.title, locale),
       subtitle: resolve(localizedContent.hero.subtitle, locale),
       primaryCta: resolve(localizedContent.hero.primaryCta, locale),

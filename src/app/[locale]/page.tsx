@@ -2,7 +2,6 @@ import Link from "next/link";
 import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { HeroSection } from "@/components/HeroSection";
 import { ProjectCard } from "@/components/ProjectCard";
-import { ScrollDownButton } from "@/components/ScrollDownButton";
 import { Section } from "@/components/Section";
 import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
 
@@ -20,41 +19,20 @@ export default async function LocaleHome({ params }: PageProps) {
     <div className="flex min-h-full flex-col">
       <HeroSection
         id="hero"
-        backgroundImage={{ src: "/face.png", opacityClassName: "opacity-40" }}
-      >
-        <p className="text-xs uppercase tracking-[0.2em] text-black/60">
-          {content.hero.eyebrow}
-        </p>
-        <div className="flex flex-col gap-4">
-          <h1 className="font-heading text-3xl font-semibold leading-tight tracking-tight text-black md:text-4xl">
-            {content.hero.title}
-          </h1>
-          <p className="max-w-3xl text-lg leading-7 text-black/70">
-            {content.hero.subtitle}
-          </p>
-        </div>
-        <div className="flex flex-wrap gap-3">
-          <a
-            href="#projects"
-            className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-5 py-3 text-sm font-medium text-white transition-colors hover:bg-black/85"
-          >
-            {content.hero.primaryCta}
-          </a>
-          <a
-            href="#contact"
-            className="inline-flex items-center justify-center rounded-full border border-black/15 px-5 py-3 text-sm font-medium text-black transition-colors hover:border-black/40"
-          >
-            {content.hero.secondaryCta}
-          </a>
-        </div>
-        <ScrollDownButton
-          href="#cv"
-          label="Go to cv"
-          className="mt-auto self-center"
-        />
-      </HeroSection>
+        hero={content.hero}
+        primaryHref="#projects"
+        secondaryHref="#contact"
+        scrollHref="#cv"
+        scrollLabel="Go to cv"
+        backgroundImage={{ src: "/face.png", opacityClassName: "opacity-20" }}
+      />
 
-      <Section id="cv" title={content.cv.title} nextId="projects">
+      <Section
+        id="cv"
+        title={content.cv.title}
+        nextId="projects"
+        backgroundImage={{ src: "/mobile_user.png", opacityClassName: "opacity-20" }}
+      >
         <div className="flex flex-col gap-4">
           <p className="text-base leading-7 text-black/80">{content.cv.summary}</p>
           <ul className="flex list-disc flex-col gap-2 pl-5 text-sm leading-6 text-black/75">
