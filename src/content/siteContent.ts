@@ -215,7 +215,7 @@ const localizedContent: LocalizedSectionContent = {
       en: "Copied",
     },
     email: {
-      en: "maxime@example.test",
+      en: "contact+net@m43rts.com",
     },
   },
 };
