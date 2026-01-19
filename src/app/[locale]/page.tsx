@@ -22,12 +22,12 @@ export default async function LocaleHome({ params }: PageProps) {
         hero={content.hero}
         primaryHref="#projects"
         secondaryHref="#contact"
-        scrollHref="#cv"
-        scrollLabel="Go to cv"
+        scrollHref="#projects"
+        scrollLabel="Go to projects"
         backgroundImage={{ src: "/face.png", opacityClassName: "opacity-20" }}
       />
 
-      <Section
+      {/* <Section
         id="cv"
         title={content.cv.title}
         nextId="projects"
@@ -41,7 +41,7 @@ export default async function LocaleHome({ params }: PageProps) {
             ))}
           </ul>
         </div>
-      </Section>
+      </Section> */}
 
       <Section id="projects" title={content.projects.title} nextId="contact"
         backgroundImage={{ src: "/random_diagram.png", opacityClassName: "opacity-20" }}
@@ -60,19 +60,38 @@ export default async function LocaleHome({ params }: PageProps) {
 
       <Section id="contact" title={content.contact.title}>
         <div className="flex h-full flex-col gap-4">
-          <div className="flex flex-wrap items-center gap-3">
-            <Link
-              href={`mailto:${content.contact.email}`}
-              className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85"
-            >
-              {content.contact.emailLabel}
-            </Link>
-            <CopyEmailButton
-              email={content.contact.email}
-              label={content.contact.copyLabel}
-              copiedLabel={content.contact.copiedLabel}
-            />
-            <span className="text-sm text-black/60">{content.contact.email}</span>
+          <div className="flex flex-col gap-2 rounded-2xl p-2">
+            <p className="text-sm font-medium text-black/70">{content.contact.emailSubtitle}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href={`mailto:${content.contact.email}`}
+                className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85"
+              >
+                {content.contact.emailLabel}
+              </Link>
+              <CopyEmailButton
+                email={content.contact.email}
+                label={content.contact.copyLabel}
+                copiedLabel={content.contact.copiedLabel}
+              />
+              <span className="text-sm text-black/60">{content.contact.email}</span>
+            </div>
+          </div>
+          <div className="flex flex-col gap-2 rounded-2xl p-2">
+            <p className="text-sm font-medium text-black/70">{content.contact.linkedinSubtitle}</p>
+            <div className="flex flex-wrap items-center gap-3">
+              <Link
+                href={content.contact.linkedinUrl}
+                className="inline-flex items-center justify-center rounded-full border border-black/80 bg-black px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-black/85"
+                target="_blank"
+                rel="noreferrer"
+              >
+                {content.contact.linkedinLabel}
+              </Link>
+              <span className="break-all text-sm text-black/60">
+                {content.contact.linkedinUrl}
+              </span>
+            </div>
           </div>
           <footer className="mt-auto pt-8 text-xs text-black/50">
             © {new Date().getFullYear()} m43rts — Maxime Aerts.

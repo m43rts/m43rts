@@ -35,10 +35,14 @@ export type SectionContent = {
   };
   contact: {
     title: string;
+    emailSubtitle: string;
     emailLabel: string;
     copyLabel: string;
     copiedLabel: string;
     email: string;
+    linkedinSubtitle: string;
+    linkedinLabel: string;
+    linkedinUrl: string;
   };
 };
 
@@ -67,10 +71,14 @@ type LocalizedSectionContent = {
   };
   contact: {
     title: Localized<string>;
+    emailSubtitle: Localized<string>;
     emailLabel: Localized<string>;
     copyLabel: Localized<string>;
     copiedLabel: Localized<string>;
     email: Localized<string>;
+    linkedinSubtitle: Localized<string>;
+    linkedinLabel: Localized<string>;
+    linkedinUrl: Localized<string>;
   };
 };
 
@@ -106,8 +114,8 @@ const localizedContent: LocalizedSectionContent = {
       en: "See projects",
     },
     secondaryCta: {
-      fr: "Devis gratuit",
-      en: "Free quote",
+      fr: "Me contacter",
+      en: "Contact me",
     },
   },
   cv: {
@@ -202,6 +210,10 @@ const localizedContent: LocalizedSectionContent = {
       fr: "Contact",
       en: "Contact",
     },
+    emailSubtitle: {
+      fr: "Email",
+      en: "Email",
+    },
     emailLabel: {
       fr: "Écrire un email",
       en: "Send an email",
@@ -216,6 +228,16 @@ const localizedContent: LocalizedSectionContent = {
     },
     email: {
       en: "contact+net@m43rts.com",
+    },
+    linkedinSubtitle: {
+      en: "LinkedIn",
+    },
+    linkedinLabel: {
+      fr: "Suivre le lien",
+      en: "Follow link",
+    },
+    linkedinUrl: {
+      en: "https://www.linkedin.com/in/m43r75/",
     },
   },
 };
@@ -249,10 +271,14 @@ export function getSiteContent(locale: Locale): SectionContent {
     },
     contact: {
       title: resolve(localizedContent.contact.title, locale),
+      emailSubtitle: resolve(localizedContent.contact.emailSubtitle, locale),
       emailLabel: resolve(localizedContent.contact.emailLabel, locale),
       copyLabel: resolve(localizedContent.contact.copyLabel, locale),
       copiedLabel: resolve(localizedContent.contact.copiedLabel, locale),
       email: resolve(localizedContent.contact.email, locale),
+      linkedinSubtitle: resolve(localizedContent.contact.linkedinSubtitle, locale),
+      linkedinLabel: resolve(localizedContent.contact.linkedinLabel, locale),
+      linkedinUrl: resolve(localizedContent.contact.linkedinUrl, locale),
     },
   };
 }
