@@ -83,6 +83,13 @@ type LocalizedSectionContent = {
 };
 
 export const defaultLocale: Locale = "fr";
+export function resolveLocale(locale?: string | null): Locale {
+  if (locale && locales.includes(locale as Locale)) {
+    return locale as Locale;
+  }
+
+  return defaultLocale;
+}
 
 const localizedContent: LocalizedSectionContent = {
   metadata: {

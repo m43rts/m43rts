@@ -3,17 +3,18 @@ import { CopyEmailButton } from "@/components/CopyEmailButton";
 import { HeroSection } from "@/components/HeroSection";
 import { ProjectCard } from "@/components/ProjectCard";
 import { Section } from "@/components/Section";
-import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
+import { getSiteContent, resolveLocale } from "@/content/siteContent";
 
-type PageParams = { locale: Locale };
+type PageParams = { locale: string };
 
 type PageProps = {
   params: Promise<PageParams>;
 };
 
 export default async function LocaleHome({ params }: PageProps) {
-  const locale = (await params).locale ?? defaultLocale;
-  const content = getSiteContent(locale);
+  const { locale } = await params;
+  const resolvedLocale = resolveLocale(locale);
+  const content = getSiteContent(resolvedLocale);
 
   return (
     <div className="flex min-h-full flex-col">

@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import { LanguageSwitcher } from "@/components/LanguageSwitcher";
-import { defaultLocale, getSiteContent, type Locale } from "@/content/siteContent";
+import { getSiteContent, resolveLocale } from "@/content/siteContent";
 
-type LayoutParams = { locale: Locale };
+type LayoutParams = { locale: string };
 
 type LayoutProps = {
   children: React.ReactNode;
@@ -14,8 +14,9 @@ export async function generateMetadata({
 }: {
   params: Promise<LayoutParams>;
 }): Promise<Metadata> {
-  const locale = (await params).locale ?? defaultLocale;
-  const { title, description } = getSiteContent(locale).metadata;
+  const { locale } = await params;
+  const resolvedLocale = resolveLocale(locale);
+  const { title, description } = getSiteContent(resolvedLocale).metadata;
 
   return {
     title,
@@ -30,8 +31,9 @@ export async function generateMetadata({
 }
 
 export default async function LocaleLayout({ children, params }: LayoutProps) {
-  const locale = (await params).locale ?? defaultLocale;
-  const content = getSiteContent(locale);
+  const { locale } = await params;
+  const resolvedLocale = resolveLocale(locale);
+  const content = getSiteContent(resolvedLocale);
 
   return (
     <div className="mx-auto flex h-[100svh] max-w-5xl flex-col bg-white text-black">
@@ -45,7 +47,7 @@ export default async function LocaleLayout({ children, params }: LayoutProps) {
           </span>
         </div>
         <div className="self-start">
-          <LanguageSwitcher currentLocale={locale} />
+          <LanguageSwitcher currentLocale={resolvedLocale} />
         </div>
       </header>
       <main className="relative flex flex-1 min-h-0 flex-col overflow-y-auto">
